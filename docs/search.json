@@ -12,5 +12,26 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "myfile.html",
+    "href": "myfile.html",
+    "title": "This is the other document",
+    "section": "",
+    "text": "See this specific code\n```{r}\n#| label: tbl-mtcars\n\nlibrary(DT)\ndatatable(mtcars)\n```\n\n\n\n\nTabela 1\n\n\n\n\n\n\n\n\n\n\nTabela 1 is a table."
+  },
+  {
+    "objectID": "myfile.html#table",
+    "href": "myfile.html#table",
+    "title": "This is the other document",
+    "section": "",
+    "text": "See this specific code\n```{r}\n#| label: tbl-mtcars\n\nlibrary(DT)\ndatatable(mtcars)\n```\n\n\n\n\nTabela 1\n\n\n\n\n\n\n\n\n\n\nTabela 1 is a table."
+  },
+  {
+    "objectID": "nextpage.html",
+    "href": "nextpage.html",
+    "title": "Next page",
+    "section": "",
+    "text": "Here you can find an external file."
   }
 ]

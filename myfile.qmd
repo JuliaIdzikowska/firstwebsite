@@ -1,0 +1,136 @@
+---
+title: "This is the other document"
+author: "Julia Idzikowska"
+data: today 
+format:
+  html:
+    self-contained: true
+    toc: true
+    toc-location: left
+    toc-title: My content
+lang: pl
+execute: 
+  echo: fenced
+  message: true
+  error: true
+code-fold: true
+code-summary: See this specific code
+warning: false 
+code-annotation: select
+---
+
+
+## Table
+
+
+```{r}
+#| label: tbl-mtcars
+
+library(DT)
+datatable(mtcars)
+```
+
+@tbl-mtcars is a table.
+
+# Linear model
+This is a Linear Model:
+$$y = /beta_0 +/beta_1 X + /varepsilon$$
+
+
+```{r}
+#| echo: true 
+#| column: margin
+#| fig-column: margin
+
+ggplot(mtcars, 
+       aes(hp, mpg, color = factor(am))) +
+  geom_point() +
+  geom_smooth(formula = y ~ x, method = "loess") +
+  theme(legend.position = 'bottom')
+
+datatable(mtcars,
+  options = list(pageLength = 3))
+
+```
+
+# Multiple plots
+
+@fig-plotsModels illustrates differents plots. @fig-plotsModels-1 stands for a, @fig-plotsModels-2 represents b, @fig-plotsModels-3 is just simply c and you can find @fig-plotsModels-4 as d. 
+
+```{r}
+#| echo: true 
+#| label: fig-plotsModels
+#| column: screen-inset-shaded
+#| layout-nrow: 2
+#| layout-ncol: 2
+#| fig-cap: "One dataset, different models" 
+#| fig-subcap:
+#|   - "The data"
+#|   - "Polynomial"
+#|   - "Linear Model"
+#|   - "GLM with Poisson" 
+
+
+ggplot(mtcars,
+       aes(mpg, hp, size = gear)) +
+  geom_point()
+
+ggplot(mtcars,
+       aes(mpg, hp, size = gear)) +
+  geom_point() + 
+  geom_smooth()
+
+ggplot(mtcars,
+       aes(mpg, hp, size = gear)) +
+  geom_point() + 
+  geom_smooth(method = "lm")
+ggplot(mtcars,
+       aes(mpg, hp, size = gear)) +
+  geom_point() + 
+  geom_smooth(method = "glm", method.args = list(family = "poisson"))
+
+```
+
+# Multiple tables 
+
+@tbl-tables present 2 datasets: @tbl-tables-1 is car and @tbl-tables-2 is pressure
+
+```{r}
+#| label: tbl-tables
+#| tbl-cap: "Datasets"
+#| tbl-subcap: 
+#|   - "Cars"
+#|   - "Pressure"
+#| layout-ncol: 2
+
+library(knitr)
+
+kable(head(cars))
+
+kable(head(pressure))
+```
+
+# Annotations 
+
+```{r}
+#| echo: true
+# Line 
+mtcars %>%                               # <1>
+  ggplot( aes(mpg, hp, size = gear)) +   # <2>
+  geom_point() +                         # <3>    
+  geom_smooth(method = "lm")             # <4>
+
+```
+
+1. This does that 
+2. This is that 
+3. This is something new
+4. Pay attention to that
+
+Now I write some text and this code to find the minimum value of something `r mean(mtcars$gear)`
+
+The sample is composed by `r nrow(data)` subjects with this many variable `r ncol(data)`
+
+
+
+![This is an image]()
